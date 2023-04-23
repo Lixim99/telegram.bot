@@ -10,4 +10,10 @@ class WebhookHandler extends TGWebhookHandler
     {
         $this->chat->html("Start: {$this->chat->chat_id}")->send();
     }
+
+    public function dismiss(){
+        //...
+
+        $this->reply("Notification dismissed");
+    }
 }
