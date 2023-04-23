@@ -2,7 +2,9 @@
 
 namespace App\Handlers;
 
+use App\Helpers\TgHelper;
 use DefStudio\Telegraph\Handlers\WebhookHandler as TGWebhookHandler;
+use DefStudio\Telegraph\Models\TelegraphChat;
 use Illuminate\Support\Stringable;
 
 class WebhookHandler extends TGWebhookHandler
@@ -14,6 +16,9 @@ class WebhookHandler extends TGWebhookHandler
 
     public function handleChatMessage(Stringable $text): void
     {
-        $this->chat->html("Received: $text")->send();
+        if (TgHelper::isAdmin($this->chat->id)) {
+            $adminChat = TelegraphChat::find($this->chat->id);
+            $adminChat->html("Received: $text")->send();
+        }
     }
 }
