@@ -38,10 +38,10 @@ class WebhookHandler extends TGWebhookHandler
         /** Send to admin */
         $adminChat = TgHelper::findAdminChatId();
 
-//        if (!TgHelper::isAdmin($this->chat->chat_id)) {
+        if (!TgHelper::isAdmin($this->chat->chat_id)) {
             $adminChat->forwardMessage($this->chat->chat_id, $this->messageId)->send();
             $adminChat->html($answer['adminText'])->send();
-//        }
+        }
     }
 
     public function handleChatMessage(Stringable $text): void
