@@ -21,7 +21,7 @@ class WebhookHandler extends TGWebhookHandler
                     ' на ' . Str::replace('c', ',', $value->get(2)) . " {$value->get(3)}.";
 
                 return [
-                    'startText' => ' Я хочу обменять ' . $numbers . '.',
+                    'startText' => ' Я хочу обменять ' . $numbers,
                     'adminText' => 'Запрос на обмен валюты по курсу - ' . $numbers
                 ];
             });
