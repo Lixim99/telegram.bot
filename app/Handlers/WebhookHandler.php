@@ -21,13 +21,13 @@ class WebhookHandler extends TGWebhookHandler
                     ' на ' . Str::replace('c', ',', $value->get(2)) . " {$value->get(3)}.";
 
                 return [
-                    'startText' => ' Я хочу обменять ' . $numbers,
+                    'startText' => 'Вы создали заявку обмена ' . $numbers . ' Наш менеджер свяжется с вами в ближайшее время.',
                     'adminText' => 'Запрос на обмен валюты по курсу - ' . $numbers
                 ];
             });
         } else {
             $answer = [
-                'startText' => 'Вы создали заявку обмена.',
+                'startText' => 'Вы создали заявку обмена. Наш менеджер свяжется с вами в ближайшее время.',
                 'adminText' => 'Пользователь пришел по ссылке без указания валют'
             ];
         }
