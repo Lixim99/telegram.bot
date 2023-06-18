@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c6ed696e383fef218c7564abd6c4447",
+    "content-hash": "45d563ce83c0ac15b855d2a9b9530ce5",
     "packages": [
         {
             "name": "brick/math",
@@ -2329,6 +2329,70 @@
                 }
             ],
             "time": "2023-02-08T01:06:31+00:00"
+        },
+        {
+            "name": "olegf13/jivochat-webhooks-api",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Olegf13/jivochat-webhooks-api.git",
+                "reference": "bc93bc738dd17bec6bacba791379f739435b4ddd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Olegf13/jivochat-webhooks-api/zipball/bc93bc738dd17bec6bacba791379f739435b4ddd",
+                "reference": "bc93bc738dd17bec6bacba791379f739435b4ddd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "ext-mongodb": "*",
+                "ext-pdo": "*",
+                "fzaninotto/faker": "^1.6",
+                "mongodb/mongodb": "1.1.*",
+                "monolog/monolog": "1.9.*",
+                "phpunit/phpunit": "~6.1"
+            },
+            "suggest": {
+                "ext-mongodb": "Allow logging of Webhooks requests/response data to a MongoDB server",
+                "ext-pdo": "Allow logging of Webhooks requests/response data to a MySQL server",
+                "mongodb/mongodb": "Allow logging of Webhooks requests/response data to a MongoDB server via PHP Driver",
+                "monolog/monolog": "Allow logging of Webhooks requests/response using Monolog"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Olegf13\\Jivochat\\Webhooks\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oleg Fedorov",
+                    "email": "olegf39@gmail.com",
+                    "homepage": "https://github.com/Olegf13",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Library for Jivochat (Jivosite) Webhooks API integration.",
+            "homepage": "https://github.com/Olegf13/jivochat-webhooks-api",
+            "keywords": [
+                "Jivochat",
+                "Webhooks API",
+                "jivosite"
+            ],
+            "support": {
+                "docs": "https://github.com/Olegf13/jivochat-webhooks-api",
+                "email": "olegf39@gmail.com",
+                "issues": "https://github.com/Olegf13/jivochat-webhooks-api/issues",
+                "source": "https://github.com/Olegf13/jivochat-webhooks-api"
+            },
+            "time": "2017-04-27T11:45:20+00:00"
         },
         {
             "name": "phpoption/phpoption",
