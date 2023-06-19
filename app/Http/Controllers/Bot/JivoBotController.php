@@ -12,7 +12,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
-use PDO;
 
 class JivoBotController extends Controller
 {
@@ -42,16 +41,28 @@ class JivoBotController extends Controller
                 ];
             }
 
-            $this->sendMessage($request->toArray(), $answer);
+            $this->sendMessage($request->toArray(), $answer['startText']);
         }
     }
 
     public function sendMessage($chat, $message)
     {
+        Log::debug(json_encode([
+            'id' => $chat['id'],
+            'client_id' => $chat['client_id'],
+            'chat_id' => $chat['chat_id'],
+            'message' => [
+                'text' => $message,
+                'type' => 'TEXT',
+                'timestamp' => $chat['message']['timestamp'] + 10,
+            ],
+            'event' => 'BOT_MESSAGE',
+        ]));
+
         Log::debug(Http::withHeaders([
             'Content-Type' => 'application/json'
         ])->post(
-            'https://bot.jivosite.com/webhooks/bPPtN3nsZTY9eHZ/v8JSLZzLwe7se6jua2B=ojoh?PU5g-O6?FqrDtOybJz2UTU-eFrTq0DcAJRzhVtIw5',
+            'https://bot.jivosite.com/webhooks/bPPtN3nsZTY9eHZ/t5XEumIFqs5dhcSvUwW',
             [
                 'id' => $chat['id'],
                 'client_id' => $chat['client_id'],
@@ -59,7 +70,7 @@ class JivoBotController extends Controller
                 'message' => [
                     'text' => $message,
                     'type' => 'TEXT',
-                    'timestamp' => time(),
+                    'timestamp' => $chat['message']['timestamp'] + 10,
                 ],
                 'event' => 'BOT_MESSAGE',
             ]
