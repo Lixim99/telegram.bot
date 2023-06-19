@@ -18,7 +18,9 @@ class JivoBotRepository
 
     protected array $message;
 
-    public const EVENT_MESSAGE = 'BOT_MESSAGE';
+    public const EVENT_MESSAGE = 'CLIENT_MESSAGE';
+
+    public const EVENT_BOT = 'BOT_MESSAGE';
 
     public const JIVO_API_URL = 'https://bot.jivosite.com/webhooks/bPPtN3nsZTY9eHZ/t5XEumIFqs5dhcSvUwW';
 
@@ -91,7 +93,7 @@ class JivoBotRepository
             'client_id' => $this->client_id,
             'chat_id' => $this->chat_id,
             'message' => $this->message,
-            'event' => self::EVENT_MESSAGE,
+            'event' => self::EVENT_BOT,
         ];
 
         Log::debug(json_encode($fields));
