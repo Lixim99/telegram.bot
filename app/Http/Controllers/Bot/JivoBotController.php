@@ -19,7 +19,11 @@ class JivoBotController extends Controller
     public function catch($token, Request $request)
     {
         try {
-            $this->repository->forSlug($token)->setStartMessageFromMessage($request->get('message')['text'])->sendMessage();
+            $this->repository->forSlug($token)
+                ->setStartMessageFromMessage($request->get('message')['text'])
+                ->sendMessage()
+                ->inviteAgent();
+
         } catch (Exception $data) {
             abort($data->getCode(), $data->getMessage());
         }

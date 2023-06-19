@@ -22,6 +22,8 @@ class JivoBotRepository
 
     public const EVENT_BOT = 'BOT_MESSAGE';
 
+    public const EVENT_AGENT = 'INVITE_AGENT';
+
     public const JIVO_API_URL = 'https://bot.jivosite.com/webhooks/bPPtN3nsZTY9eHZ/t5XEumIFqs5dhcSvUwW';
 
     protected const JIVO_TOKEN = 't5XEumIFqs5dhcSvUwW';
@@ -38,6 +40,11 @@ class JivoBotRepository
         }
     }
 
+    /**
+     * @param $slug
+     * @return $this
+     * @throws \Exception
+     */
     public function forSlug($slug)
     {
         if ($slug !== self::JIVO_TOKEN) {
@@ -83,7 +90,7 @@ class JivoBotRepository
     }
 
     /**
-     * @return void
+     * @return JivoBotRepository
      * Отправка сообщения
      */
     public function sendMessage()
@@ -94,6 +101,22 @@ class JivoBotRepository
             'chat_id' => $this->chat_id,
             'message' => $this->message,
             'event' => self::EVENT_BOT,
+        ];
+
+        Log::debug(json_encode($fields));
+
+        Log::debug(Http::withHeaders(['Content-Type' => 'application/json'])->post(self::JIVO_API_URL, $fields));
+
+        return $this;
+    }
+
+    public function inviteAgent()
+    {
+        $fields = [
+            'id' => $this->id,
+            'client_id' => $this->client_id,
+            'chat_id' => $this->chat_id,
+            'event' => self::EVENT_AGENT,
         ];
 
         Log::debug(json_encode($fields));
