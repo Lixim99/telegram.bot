@@ -18,7 +18,7 @@ class JivoBotRepository
 
     protected array $message;
 
-    public const EVENT_MESSAGE = 'CLIENT_MESSAGE';
+    public const EVENT_MESSAGE = 'BOT_MESSAGE';
 
     public const JIVO_API_URL = 'https://bot.jivosite.com/webhooks/bPPtN3nsZTY9eHZ/t5XEumIFqs5dhcSvUwW';
 
