@@ -61,7 +61,7 @@ class JivoBotRepository
      */
     public function setStartMessageFromMessage(string $text)
     {
-        if (!empty($text) && Str::contains($text, '/start')) {
+        if (!empty($text)) {
             $preparedString = Str::of($text)->remove('/start');
 
             if ($preparedString->isNotEmpty()) {
