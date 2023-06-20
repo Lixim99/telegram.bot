@@ -64,6 +64,8 @@ class JivoBotRepository
         if (!empty($text)) {
             $preparedString = Str::of($text)->remove('/start');
 
+            Log::debug($preparedString);
+
             if ($preparedString->isNotEmpty()) {
                 $this->message = $preparedString->explode('_')->whenNotEmpty(function ($value) {
                     $numbers = "{$value->get(0)} " . Str::replace('c', ',', $value->get(1)) .
