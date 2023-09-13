@@ -4,6 +4,7 @@ namespace App\Handlers;
 
 use App\Helpers\TgHelper;
 use DefStudio\Telegraph\Handlers\WebhookHandler as TGWebhookHandler;
+use DefStudio\Telegraph\Models\TelegraphBot;
 use DefStudio\Telegraph\Models\TelegraphChat;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
@@ -69,5 +70,22 @@ class WebhookHandler extends TGWebhookHandler
                     ->send();
             }
         }
+    }
+
+    public function show()
+    {
+        /** @var class-string<TelegraphBot> $botModel */
+        $botModel = config('telegraph.models.bot');
+
+        /** @var TelegraphBot $bot */
+        $bot = $botModel::fromToken('v8JSLZzLwe7se6jua2B=ojoh?PU5g-O6?FqrDtOybJz2UTU-eFrTq0DcAJRzhVtIw5');
+
+        /** @var class-string $handler */
+        $handler = config('telegraph.webhook_handler');
+
+        /** @var \DefStudio\Telegraph\Handlers\WebhookHandler $handler */
+        $handler = app($handler);
+
+        dd($handler->handle());
     }
 }

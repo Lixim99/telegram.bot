@@ -24,9 +24,9 @@ class JivoBotRepository
 
     public const EVENT_AGENT = 'INVITE_AGENT';
 
-    public const JIVO_API_URL = 'https://bot.jivosite.com/webhooks/bPPtN3nsZTY9eHZ/t5XEumIFqs5dhcSvUwW';
+    public const JIVO_API_URL = 'https://bot.jivosite.com/webhooks/gJrmTdbmSSDKci2/v8JSLZzLwe7se6jua2B=ojoh?PU5g-O6?FqrDtOybJz2UTU-eFrTq0DcAJRzhVtIw5';
 
-    protected const JIVO_TOKEN = 't5XEumIFqs5dhcSvUwW';
+    protected const JIVO_TOKEN = 'v8JSLZzLwe7se6jua2B=ojoh?PU5g-O6?FqrDtOybJz2UTU-eFrTq0DcAJRzhVtIw5';
 
     public function __construct(array $data)
     {
